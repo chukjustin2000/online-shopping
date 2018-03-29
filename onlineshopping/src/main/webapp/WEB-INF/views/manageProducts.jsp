@@ -27,14 +27,17 @@
 				<div class="panel-body">
 				
 					<!-- FORM ELEMENTS -->
-					<sf:form class="form-horizontal" modelAttribute="product" action="${contextRoot}/manage/products" method="POST">
+					<sf:form class="form-horizontal" modelAttribute="product" 
+					action="${contextRoot}/manage/products" 
+					method="POST"
+					enctype="multipart/form-data">
 					
 						<div class="form-group">
 							<label class="control-label col-md-4" for="name">Enter Product Name</label>
 							<div class="col-md-8">
 							
 								<sf:input type="text" path="name" id="name" placeholder="Poduct Name" class="form-control"/>
-								
+								<sf:errors path="name" cssStyle="color: #ff0000" element="em" />
 								<!-- <em class="help-block" style="color: #ff0000">Please Enter Product Name !</em> -->
 							</div>
 		
@@ -45,7 +48,7 @@
 							<div class="col-md-8">
 							
 								<sf:input type="text" path="brand" id="brand" placeholder="Brand Name" class="form-control"/>
-								
+								<sf:errors path="brand" cssStyle="color: #ff0000" element="em" />
 							</div>	
 						</div>
 						<div class="form-group">
@@ -53,6 +56,7 @@
 							<div class="col-md-8">
 							
 								<sf:textarea  path="description" id="description" placeholder="Write a description" class="form-control"/>
+								<sf:errors path="description" cssStyle="color: #ff0000" element="em" />
 							</div>	
 						</div>
 						
@@ -61,7 +65,7 @@
 							<div class="col-md-8">
 							
 								<sf:input type="number" path="unitPrice" id="unitPrice" placeholder="Unit Price in &#8377;" class="form-control"/>
-							
+								<sf:errors path="unitPrice" cssStyle="color: #ff0000" element="em" />
 							</div>
 						</div>
 						<div class="form-group">
@@ -70,6 +74,16 @@
 							
 								<input type="number" name="quantity" id="quantity" placeholder="Select Quantity: " class="form-control"/>
 							
+							</div>
+						</div>
+						
+						<!-- File element for image upload -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="file">Select an Image: </label>
+							<div class="col-md-8">
+							
+								<sf:input type="file" path="file" id="file" class="form-control"/>
+								<sf:errors path="file" cssStyle="color: #ff0000" element="em"  />
 							</div>
 						</div>
 						<div class="form-group">
